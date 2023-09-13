@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "type": "paletted_permutations",
+      "textures": [
+        "ec_tf_plugin:item/battle_staff",
+        "ec_tf_plugin:item/broad_sword",
+        "ec_tf_plugin:item/claymore",
+        "ec_tf_plugin:item/cutlass",
+        "ec_tf_plugin:item/dagger",
+        "ec_tf_plugin:item/dancer_s_sword",
+        "ec_tf_plugin:item/glaive",
+        "ec_tf_plugin:item/katana",
+        "ec_tf_plugin:item/scythe",
+        "ec_tf_plugin:item/sickle",
+        "ec_tf_plugin:item/spear",
+        "ec_tf_plugin:item_large/battle_staff",
+        "ec_tf_plugin:item_large/broad_sword",
+        "ec_tf_plugin:item_large/claymore",
+        "ec_tf_plugin:item_large/dancer_s_sword",
+        "ec_tf_plugin:item_large/glaive",
+        "ec_tf_plugin:item_large/katana",
+        "ec_tf_plugin:item_large/scythe",
+        "ec_tf_plugin:item_large/spear"
+      ],
+      "palette_key": "ec_tf_plugin:item/color_palettes/template",
+      "permutations": {
+        "steeleaf": "ec_tf_plugin:item/color_palettes/steeleaf",
+        "ironwood": "ec_tf_plugin:item/color_palettes/ironwood",
+        "knight_metal": "ec_tf_plugin:item/color_palettes/knight_metal"
+      }
+    }
+  ]
+}

@@ -5,11 +5,13 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
 
-version = mod_version
-group = mod_group_id
+jarJar.enable()
+
+version = "${mod_version}"
+group = "com.userofbricks.${mod_id}"
 
 base {
-    archivesName = mod_id
+    archivesName = "${mod_id}-${minecraft_version}"
 }
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
@@ -20,13 +22,15 @@ minecraft {
     mappings channel: mapping_channel, version: mapping_version
     enableIdeaPrepareRuns = true
     copyIdeResources = true
-    generateRunFolders = true
+    //generateRunFolders = true
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
         configureEach {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             mods {
                 "${mod_id}" {
@@ -47,20 +51,65 @@ minecraft {
         }
         data {
             workingDirectory project.file('run-data')
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing', file('src/only_for_datagen/resources/'), '--existing', file('../Expanded-Combat/src/main/resources/'), '--existing', file('../Expanded-Combat/src/needed_only_for_datagen/resources/')
         }
     }
 }
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // flatDir {
-    //     dir 'libs'
-    // }
+    flatDir {
+        dir 'libs'
+    }
+    maven {
+        // location of the maven that hosts JEI files before January 2023
+        name = "Progwml6's maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {//JEI
+        name = "ModMaven"
+        url = "https://modmaven.k-4u.nl"
+    }
+    maven {//Registrate
+        name 'tterrag maven'
+        url 'https://maven.tterrag.com'
+    }
+    mavenCentral()
+    maven { url = "https://maven.theillusivec4.top/" }
+
+    maven { url "https://maven.shedaniel.me/" }
+
+    maven { url 'https://api.modrinth.com/maven' }
+
+    maven {
+        name "KosmX's maven"
+        url 'https://maven.kosmx.dev/'
+    }
+    maven {
+        url = "https://modmaven.dev/"
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    jarJar(group: 'com.tterrag.registrate', name: 'Registrate', version: "${registrate_mc_version_range}")
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    implementation fg.deobf("teamtwilight:twilightforest:${twilight_forest_version}:universal")
+    implementation fg.deobf("com.userofbricks.expanded_combat:expanded_combat-${minecraft_version}:${expanded_combat_version}")
+    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_api_version}")
+    implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
+    implementation(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+    implementation fg.deobf("maven.modrinth:better-combat:${better_combat_version}+${minecraft_version}-forge")
+    implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_anim_version}")
 }
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
@@ -69,6 +118,10 @@ tasks.named('processResources', ProcessResources).configure {
             loader_version_range: loader_version_range,
             mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
             mod_authors: mod_authors, mod_description: mod_description,
+
+            curios_version: curios_version, cloth_config_api_version: cloth_config_api_version,
+            twilight_forest_version: twilight_forest_version, better_combat_version: better_combat_version,
+            expanded_combat_version: expanded_combat_version,
     ]
     inputs.properties replaceProperties
 
@@ -111,3 +164,9 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
+
+reobf {
+    jarJar { }
+}
+
+tasks.jarJar.finalizedBy('reobfJarJar')

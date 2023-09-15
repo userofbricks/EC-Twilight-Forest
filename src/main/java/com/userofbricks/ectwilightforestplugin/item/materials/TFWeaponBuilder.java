@@ -18,6 +18,7 @@ import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.NotCondition;
@@ -56,6 +57,7 @@ public class TFWeaponBuilder extends MaterialBuilder {
                     conditionalShapedRecipe(ctx, prov, weapon.recipe(), ingredientMap, 1, new ICondition[]{enableArrows, new NotCondition(isSingleAddition)}, triggerInstance, "");
                 }
                 if (craftedFrom != null){
+                    conditionalLegacySmithingRecipe(ctx, prov, IngredientUtil.getIngrediantFromItemString(material.getConfig().crafting.repairItem), Ingredient.of(new ItemLike[]{(ItemLike)craftedFrom.getWeaponEntry(weapon.name()).get()}), new ICondition[]{enableArrows, isSingleAddition}, triggerInstance, "");
                     conditionalSmithing120Recipe(ctx, prov, material, Ingredient.of(craftedFrom.getWeaponEntry(weapon.name()).get()), new ICondition[]{enableArrows, isSingleAddition}, "");
                 }
             }

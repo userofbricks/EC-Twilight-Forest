@@ -31,7 +31,7 @@ public class TFWeaponItem extends ECWeaponItem {
     @Override
     public boolean hurtEnemy(@NotNull ItemStack weapon, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {
         boolean result = super.hurtEnemy(weapon, target, attacker);
-        if (result && !target.level().isClientSide && !target.fireImmune()) {
+        if (result && !target.level.isClientSide && !target.fireImmune()) {
             target.setRemainingFireTicks(15);
         } else {
             Random random = new Random();
@@ -39,7 +39,7 @@ public class TFWeaponItem extends ECWeaponItem {
                 double px = target.getX() + random.nextFloat() * target.getBbWidth() * 2.0F - target.getBbWidth();
                 double py = target.getY() + random.nextFloat() * target.getBbHeight();
                 double pz = target.getZ() + random.nextFloat() * target.getBbWidth() * 2.0F - target.getBbWidth();
-                target.level().addParticle(ParticleTypes.FLAME, px, py, pz, 0.02, 0.02, 0.02);
+                target.level.addParticle(ParticleTypes.FLAME, px, py, pz, 0.02, 0.02, 0.02);
             }
         }
         return result;

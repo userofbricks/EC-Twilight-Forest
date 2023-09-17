@@ -46,7 +46,7 @@ side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="twilightforest"
-mandatory=false
+mandatory=true
 versionRange="[${twilight_forest_version},)"
 ordering="AFTER"
 side="BOTH"

@@ -5,11 +5,15 @@ import com.userofbricks.ectwilightforestplugin.ECTwilightForestPlugin;
 import com.userofbricks.expanded_combat.datagen.BetterCombatWeaponAttributesProvider;
 import com.userofbricks.expanded_combat.item.ECWeaponItem;
 import com.userofbricks.expanded_combat.item.materials.Material;
-import com.userofbricks.expanded_combat.item.materials.MaterialInit;
 import com.userofbricks.expanded_combat.item.materials.WeaponMaterial;
 import com.userofbricks.expanded_combat.item.materials.plugins.VanillaECPlugin;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static com.userofbricks.ectwilightforestplugin.item.materials.plugins.TwilightForestPlugin.*;
 
 public class ECTFBetterCombatWeaponAttributesProvider extends BetterCombatWeaponAttributesProvider {
     public ECTFBetterCombatWeaponAttributesProvider(PackOutput output, ExistingFileHelper helper) {
@@ -18,8 +22,9 @@ public class ECTFBetterCombatWeaponAttributesProvider extends BetterCombatWeapon
 
     @Override
     public void registerTransforms() {
+        List<Material> materials = Arrays.asList(IRONWOOD, FIERY, STEELEAF, KNIGHTMETAL);
         for (Material material :
-                MaterialInit.weaponMaterials) {
+                materials) {
             material.getWeapons().values().stream().map(RegistryEntry::get).forEach(weaponItem -> {
                 WeaponMaterial weaponMaterial = ((ECWeaponItem)weaponItem).getWeapon();
                 add(weaponItem, getAttributesForWeapon(weaponMaterial));

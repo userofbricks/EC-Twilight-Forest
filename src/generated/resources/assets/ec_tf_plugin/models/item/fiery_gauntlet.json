@@ -63,6 +63,6 @@
     }
   ],
   "textures": {
-    "layer0": "expanded_combat:item/gauntlet/fiery"
+    "layer0": "ec_tf_plugin:item/gauntlet/fiery"
   }
 }

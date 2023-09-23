@@ -30,7 +30,7 @@ public class LangStrings {
 
         //Config
         String configLangStart = configLangStartGetter.get();
-        ExpandedCombat.REGISTRATE.get().addRawLang(configLangStart + ".title", "Expanded Combat Settings");
+        ExpandedCombat.REGISTRATE.get().addRawLang(configLangStart + ".title", "EC TF Settings");
         Arrays.stream(ECTFConfig.class.getDeclaredFields()).collect(
                         Collectors.groupingBy((field) -> getOrCreateCategoryForField(REGISTRATE.get(), field, alreadyAddedStrings, configLangStart), LinkedHashMap::new, Collectors.toList()))
                 .forEach((key, value) -> value.forEach((field) -> ifNotExcludedRegisterLangs(REGISTRATE.get(), field, configLangStart, alreadyAddedStrings)));

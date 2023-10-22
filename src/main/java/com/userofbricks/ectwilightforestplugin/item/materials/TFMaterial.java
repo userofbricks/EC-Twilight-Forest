@@ -6,7 +6,9 @@ import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import com.userofbricks.ectwilightforestplugin.item.TFWeaponItem;
 import com.userofbricks.expanded_combat.ExpandedCombat;
 import com.userofbricks.expanded_combat.config.ECConfig;
+import com.userofbricks.expanded_combat.config.MaterialConfig;
 import com.userofbricks.expanded_combat.item.ECItems;
+import com.userofbricks.expanded_combat.item.ECWeaponItem;
 import com.userofbricks.expanded_combat.item.materials.*;
 import com.userofbricks.expanded_combat.util.LangStrings;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +19,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class TFMaterial extends Material {
-    public TFMaterial(@NotNull NonNullSupplier<Registrate> registrate, @NotNull String name, @Nullable Map<String, List<String>> aliases, @Nullable Material craftedFrom, ECConfig.@NotNull MaterialConfig config, boolean arrow, boolean bow, boolean halfbow, boolean crossbow, boolean gauntlet, boolean quiver, boolean shield, ShieldUse shieldUse, boolean weapons, boolean blockWeaponOnly, boolean dyeable, Function<Float, Float> additionalDamageAfterEnchantments) {
+    public TFMaterial(@NotNull NonNullSupplier<Registrate> registrate, @NotNull String name, @Nullable Map<String, List<String>> aliases, @Nullable Material craftedFrom, @NotNull MaterialConfig config, boolean arrow, boolean bow, boolean halfbow, boolean crossbow, boolean gauntlet, boolean quiver, boolean shield, ShieldUse shieldUse, boolean weapons, boolean blockWeaponOnly, boolean dyeable, Function<Float, Float> additionalDamageAfterEnchantments) {
         super(registrate, name, aliases, craftedFrom, config, arrow, bow, halfbow, crossbow, gauntlet, quiver, shield, shieldUse, weapons, blockWeaponOnly, dyeable, additionalDamageAfterEnchantments);
     }
 
@@ -54,11 +56,9 @@ public class TFMaterial extends Material {
         if (MaterialInit.weaponMaterials.contains(this)) {
             for (WeaponMaterial weaponMaterial : MaterialInit.weaponMaterialConfigs) {
                 if (!weaponMaterial.isBlockWeapon() && blockWeaponOnly) continue;
-                RegistryEntry<TFWeaponItem> weapon = TFWeaponBuilder.generateWeapon(registrate.get(), getName(), weaponMaterial, this, getCraftedFrom());
+                RegistryEntry<? extends ECWeaponItem> weapon = TFWeaponBuilder.generateWeapon(registrate.get(), getName(), weaponMaterial, this, getCraftedFrom());
                 weaponEntries.put(weaponMaterial.name(), weapon);
                 ECItems.ITEMS.add(weapon);
-                weaponGUIModel.put(weaponMaterial.name(), WeaponBuilder.generateGuiModel(registrate.get(), weaponMaterial, this));
-                weaponInHandModel.put(weaponMaterial.name(), WeaponBuilder.generateInHandModel(registrate.get(), weaponMaterial, this));
             }
         }
         if (MaterialInit.shieldMaterials.contains(this)) {
@@ -68,13 +68,13 @@ public class TFMaterial extends Material {
 
 
     public static class TFBuilder extends Material.Builder {
-        public TFBuilder(@NotNull NonNullSupplier<Registrate> registrate, @NotNull String name, @Nullable Material craftedFrom, ECConfig.@NotNull MaterialConfig config) {
+        public TFBuilder(@NotNull NonNullSupplier<Registrate> registrate, @NotNull String name, @Nullable Material craftedFrom, @NotNull MaterialConfig config) {
             super(registrate, name, craftedFrom, config);
         }
 
         @Override
         public TFMaterial build() {
-            return new TFMaterial(getRegistrate(), getName(), getAliases(), getCraftedFrom(), getConfig(), isArrow(), isBow(), isHalfbow(), isCrossbow(), isGauntlet(), isQuiver(), isShield(), getShieldUse(), isWeapons(), isBlockWeaponOnly(), isDyeable(), getAdditionalDamageAfterEnchantments());
+            return new TFMaterial(getRegistrate(), getName(), getAliases(), getCraftedFrom(), getConfigSupplier().get(), isArrow(), isBow(), isHalfbow(), isCrossbow(), isGauntlet(), isQuiver(), isShield(), getShieldUse(), isWeapons(), isBlockWeaponOnly(), isDyeable(), getAdditionalDamageAfterEnchantments());
         }
     }
 }

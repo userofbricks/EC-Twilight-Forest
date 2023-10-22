@@ -3,40 +3,46 @@ package com.userofbricks.ectwilightforestplugin.item.materials;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import com.userofbricks.ectwilightforestplugin.item.TFHammerWeaponItem;
+import com.userofbricks.ectwilightforestplugin.item.TFKatanaItem;
 import com.userofbricks.ectwilightforestplugin.item.TFWeaponItem;
 import com.userofbricks.expanded_combat.item.ECItemTags;
+import com.userofbricks.expanded_combat.item.ECWeaponItem;
 import com.userofbricks.expanded_combat.item.materials.Material;
-import com.userofbricks.expanded_combat.item.materials.MaterialBuilder;
+import com.userofbricks.expanded_combat.item.materials.WeaponBuilder;
 import com.userofbricks.expanded_combat.item.materials.WeaponMaterial;
+import com.userofbricks.expanded_combat.item.materials.plugins.VanillaECPlugin;
 import com.userofbricks.expanded_combat.item.recipes.builders.RecipeIngredientMapBuilder;
 import com.userofbricks.expanded_combat.item.recipes.conditions.ECConfigBooleanCondition;
 import com.userofbricks.expanded_combat.item.recipes.conditions.ECMaterialBooleanCondition;
 import com.userofbricks.expanded_combat.util.IngredientUtil;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.client.color.item.ItemColor;
-import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.NotCondition;
 
 import java.util.Map;
 
-public class TFWeaponBuilder extends MaterialBuilder {
-    public static RegistryEntry<TFWeaponItem> generateWeapon(Registrate registrate, String name, WeaponMaterial weapon, Material material, Material craftedFrom) {
-        ItemBuilder<TFWeaponItem, Registrate> itemBuilder = registrate.item(material.getLocationName() + "_" + weapon.getLocationName(), (p) -> new TFWeaponItem(material, weapon, p));
-        if (weapon.dyeable() && weapon.potionDippable()) itemBuilder = registrate.item(material.getLocationName() + "_" + weapon.getLocationName(), (p) -> new TFWeaponItem.HasPotionAndIsDyeable(material, weapon, p));
-        else if (weapon.dyeable()) itemBuilder = registrate.item(material.getLocationName() + "_" + weapon.getLocationName(), (p) -> new TFWeaponItem.Dyeable(material, weapon, p));
-        else if (weapon.potionDippable()) itemBuilder = registrate.item(material.getLocationName() + "_" + weapon.getLocationName(), (p) -> new TFWeaponItem.HasPotion(material, weapon, p));
+public class TFWeaponBuilder extends WeaponBuilder {
+    public static RegistryEntry<ECWeaponItem> generateWeapon(Registrate registrate, String name, WeaponMaterial weapon, Material material, Material craftedFrom) {
+        String locationName = material.getLocationName() + "_" + weapon.getLocationName();
+        ItemBuilder<ECWeaponItem, Registrate> itemBuilder = registrate.item(locationName, (p) -> new TFWeaponItem(material, weapon, p));
+        if (weapon.dyeable() && weapon.potionDippable()) itemBuilder = registrate.item(locationName, (p) -> new TFWeaponItem.HasPotionAndIsDyeable(material, weapon, p));
+        else if (weapon.dyeable()) itemBuilder = registrate.item(locationName, (p) -> new TFWeaponItem.Dyeable(material, weapon, p));
+        else if (weapon.potionDippable()) itemBuilder = registrate.item(locationName, (p) -> new TFWeaponItem.HasPotion(material, weapon, p));
+
+        if (weapon == VanillaECPlugin.KATANA) itemBuilder = registrate.item(locationName, p -> new TFKatanaItem(material, weapon, p));
+        if (weapon == VanillaECPlugin.GREAT_HAMMER) itemBuilder = registrate.item(locationName, p -> new TFHammerWeaponItem(material, weapon, p));
 
         if (weapon.potionDippable()) itemBuilder.tag(ECItemTags.POTION_WEAPONS);
 
         itemBuilder.lang(name + " " + weapon.name());
 
         //MODEL
-        itemBuilder.model((ctx, prov) -> prov.getBuilder(ctx.getName()).parent(new ModelFile.UncheckedModelFile("builtin/entity")).guiLight(BlockModel.GuiLight.FRONT));
+        itemBuilder.model((ctx, prov) -> generateModel(ctx, prov, weapon, material));
         itemBuilder.recipe((ctx, prov) -> {
             if (!material.getConfig().crafting.repairItem.isEmpty()) {
                 InventoryChangeTrigger.TriggerInstance triggerInstance = getTriggerInstance(material.getConfig().crafting.repairItem);

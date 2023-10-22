@@ -33,8 +33,7 @@
           "recipes": [
             "ec_tf_plugin:steeleaf_cutlass"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

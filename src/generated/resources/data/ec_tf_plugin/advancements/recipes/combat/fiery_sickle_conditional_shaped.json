@@ -33,8 +33,7 @@
           "recipes": [
             "ec_tf_plugin:fiery_sickle"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

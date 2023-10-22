@@ -33,8 +33,7 @@
           "recipes": [
             "ec_tf_plugin:steeleaf_great_hammer"
           ]
-        },
-        "sends_telemetry_event": true
+        }
       },
       "conditions": [
         {

@@ -447,5 +447,8 @@
   "text.autoconfig.ec_tf_plugin.option.yeti.quiverSlots": "InventorySlots",
   "tooltip.expanded_combat.fiery.weapon": "Burns targets",
   "tooltip.expanded_combat.knightly.weapon_armored": "Extra damage to armored targets",
-  "tooltip.expanded_combat.knightly.weapon_unarmored": "Extra damage to unarmored targets"
+  "tooltip.expanded_combat.knightly.weapon_unarmored": "Extra damage to unarmored targets",
+  "tooltip.expanded_combat.shield_material.Ironwood": "Ironwood",
+  "tooltip.expanded_combat.shield_material.Naga Scale": "Naga Scale",
+  "tooltip.expanded_combat.shield_material.Steeleaf": "Steeleaf"
 }

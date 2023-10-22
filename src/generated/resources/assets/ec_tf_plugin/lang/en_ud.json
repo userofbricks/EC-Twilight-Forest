@@ -447,5 +447,8 @@
   "text.autoconfig.ec_tf_plugin.option.yeti.quiverSlots": "sʇoןSʎɹoʇuǝʌuI",
   "tooltip.expanded_combat.fiery.weapon": "sʇǝbɹɐʇ suɹnᗺ",
   "tooltip.expanded_combat.knightly.weapon_armored": "sʇǝbɹɐʇ pǝɹoɯɹɐ oʇ ǝbɐɯɐp ɐɹʇxƎ",
-  "tooltip.expanded_combat.knightly.weapon_unarmored": "sʇǝbɹɐʇ pǝɹoɯɹɐun oʇ ǝbɐɯɐp ɐɹʇxƎ"
+  "tooltip.expanded_combat.knightly.weapon_unarmored": "sʇǝbɹɐʇ pǝɹoɯɹɐun oʇ ǝbɐɯɐp ɐɹʇxƎ",
+  "tooltip.expanded_combat.shield_material.Ironwood": "pooʍuoɹI",
+  "tooltip.expanded_combat.shield_material.Naga Scale": "ǝןɐɔS ɐbɐN",
+  "tooltip.expanded_combat.shield_material.Steeleaf": "ɟɐǝןǝǝʇS"
 }

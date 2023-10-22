@@ -1,4 +1,68 @@
 {
-  "parent": "minecraft:builtin/entity",
-  "gui_light": "front"
+  "parent": "minecraft:item/handheld",
+  "base": {
+    "parent": "expanded_combat:item/bases/katana",
+    "textures": {
+      "layer0": "expanded_combat:item_large/katana_handle",
+      "layer1": "expanded_combat:item_large/katana_fiery"
+    }
+  },
+  "loader": "forge:separate_transforms",
+  "overrides": [
+    {
+      "model": "ec_tf_plugin:item/base/block_1/fiery_katana_block_1",
+      "predicate": {
+        "minecraft:block_pos": 0.1,
+        "minecraft:blocked_recently": 1.0,
+        "minecraft:blocking": 1.0
+      }
+    },
+    {
+      "model": "ec_tf_plugin:item/base/block_2/fiery_katana_block_2",
+      "predicate": {
+        "minecraft:block_pos": 0.2,
+        "minecraft:blocked_recently": 1.0,
+        "minecraft:blocking": 1.0
+      }
+    },
+    {
+      "model": "ec_tf_plugin:item/base/block_3/fiery_katana_block_3",
+      "predicate": {
+        "minecraft:block_pos": 0.3,
+        "minecraft:blocked_recently": 1.0,
+        "minecraft:blocking": 1.0
+      }
+    },
+    {
+      "model": "ec_tf_plugin:item/base/none/fiery_katana_none",
+      "predicate": {
+        "minecraft:block_pos": 0.4,
+        "minecraft:blocked_recently": 1.0,
+        "minecraft:blocking": 1.0
+      }
+    }
+  ],
+  "perspectives": {
+    "fixed": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "expanded_combat:item/katana_handle",
+        "layer1": "expanded_combat:item/katana_fiery"
+      }
+    },
+    "ground": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "expanded_combat:item/katana_handle",
+        "layer1": "expanded_combat:item/katana_fiery"
+      }
+    },
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "expanded_combat:item/katana_handle",
+        "layer1": "expanded_combat:item/katana_fiery"
+      }
+    }
+  }
 }

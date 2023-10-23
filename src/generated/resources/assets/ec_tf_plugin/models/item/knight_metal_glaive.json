@@ -5,7 +5,7 @@
     "textures": {
       "layer0": "expanded_combat:item_large/glaive_dye",
       "layer1": "expanded_combat:item_large/glaive_handle",
-      "layer2": "expanded_combat:item_large/glaive_knight_metal"
+      "layer2": "ec_tf_plugin:item_large/glaive_knight_metal"
     }
   },
   "loader": "forge:separate_transforms",
@@ -15,7 +15,7 @@
       "textures": {
         "layer0": "expanded_combat:item/glaive_dye",
         "layer1": "expanded_combat:item/glaive_handle",
-        "layer2": "expanded_combat:item/glaive_knight_metal"
+        "layer2": "ec_tf_plugin:item/glaive_knight_metal"
       }
     },
     "ground": {
@@ -23,7 +23,7 @@
       "textures": {
         "layer0": "expanded_combat:item/glaive_dye",
         "layer1": "expanded_combat:item/glaive_handle",
-        "layer2": "expanded_combat:item/glaive_knight_metal"
+        "layer2": "ec_tf_plugin:item/glaive_knight_metal"
       }
     },
     "gui": {
@@ -31,7 +31,7 @@
       "textures": {
         "layer0": "expanded_combat:item/glaive_dye",
         "layer1": "expanded_combat:item/glaive_handle",
-        "layer2": "expanded_combat:item/glaive_knight_metal"
+        "layer2": "ec_tf_plugin:item/glaive_knight_metal"
       }
     }
   }

@@ -2,6 +2,6 @@
   "parent": "expanded_combat:item/bases/cutlass",
   "textures": {
     "layer0": "expanded_combat:item/cutlass_handle",
-    "layer1": "expanded_combat:item/cutlass_knight_metal"
+    "layer1": "ec_tf_plugin:item/cutlass_knight_metal"
   }
 }

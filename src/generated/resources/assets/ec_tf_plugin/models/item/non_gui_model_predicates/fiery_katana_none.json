@@ -4,7 +4,7 @@
     "parent": "expanded_combat:item/bases/katana_none",
     "textures": {
       "layer0": "expanded_combat:item_large/katana_handle",
-      "layer1": "ec_tf_plugin:item_large/katana_fiery"
+      "layer1": "ec_tf_plugin:item_large/katana/fiery"
     }
   },
   "loader": "forge:separate_transforms",
@@ -13,21 +13,21 @@
       "parent": "minecraft:item/generated",
       "textures": {
         "layer0": "expanded_combat:item/katana_handle",
-        "layer1": "ec_tf_plugin:item/katana_fiery"
+        "layer1": "ec_tf_plugin:item/katana/fiery"
       }
     },
     "ground": {
       "parent": "minecraft:item/generated",
       "textures": {
         "layer0": "expanded_combat:item/katana_handle",
-        "layer1": "ec_tf_plugin:item/katana_fiery"
+        "layer1": "ec_tf_plugin:item/katana/fiery"
       }
     },
     "gui": {
       "parent": "minecraft:item/generated",
       "textures": {
         "layer0": "expanded_combat:item/katana_handle",
-        "layer1": "ec_tf_plugin:item/katana_fiery"
+        "layer1": "ec_tf_plugin:item/katana/fiery"
       }
     }
   }

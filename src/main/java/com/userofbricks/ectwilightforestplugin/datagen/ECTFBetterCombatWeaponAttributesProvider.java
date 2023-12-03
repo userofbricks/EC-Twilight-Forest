@@ -2,12 +2,12 @@ package com.userofbricks.ectwilightforestplugin.datagen;
 
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.userofbricks.ectwilightforestplugin.ECTwilightForestPlugin;
-import com.userofbricks.expanded_combat.datagen.BetterCombatWeaponAttributesProvider;
+import com.userofbricks.expanded_combat.api.material.Material;
+import com.userofbricks.expanded_combat.api.material.WeaponMaterial;
+import com.userofbricks.expanded_combat.datagen.bettercombat.BetterCombatWeaponAttributesProvider;
+import com.userofbricks.expanded_combat.init.MaterialInit;
 import com.userofbricks.expanded_combat.item.ECWeaponItem;
-import com.userofbricks.expanded_combat.item.materials.Material;
-import com.userofbricks.expanded_combat.item.materials.MaterialInit;
-import com.userofbricks.expanded_combat.item.materials.WeaponMaterial;
-import com.userofbricks.expanded_combat.item.materials.plugins.VanillaECPlugin;
+import com.userofbricks.expanded_combat.plugins.VanillaECPlugin;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 

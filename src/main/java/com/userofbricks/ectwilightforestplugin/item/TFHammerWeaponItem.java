@@ -1,10 +1,9 @@
 package com.userofbricks.ectwilightforestplugin.item;
 
-import com.userofbricks.ectwilightforestplugin.item.materials.plugins.TwilightForestPlugin;
+import com.userofbricks.ectwilightforestplugin.plugins.TwilightForestPlugin;
 import com.userofbricks.ectwilightforestplugin.util.LangStrings;
+import com.userofbricks.expanded_combat.api.material.Material;
 import com.userofbricks.expanded_combat.item.ECHammerWeaponItem;
-import com.userofbricks.expanded_combat.item.materials.Material;
-import com.userofbricks.expanded_combat.item.materials.WeaponMaterial;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,8 +18,8 @@ import java.util.List;
 import java.util.Random;
 
 public class TFHammerWeaponItem extends ECHammerWeaponItem {
-    public TFHammerWeaponItem(Material material, WeaponMaterial weapon, Properties properties) {
-        super(material, weapon, properties);
+    public TFHammerWeaponItem(Material material, Properties properties) {
+        super(material, properties);
     }
     @Override
     public boolean hurtEnemy(@NotNull ItemStack weapon, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {

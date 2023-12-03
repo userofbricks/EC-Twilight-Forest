@@ -1,6 +1,6 @@
 package com.userofbricks.ectwilightforestplugin.events;
 
-import com.userofbricks.ectwilightforestplugin.item.materials.plugins.TwilightForestPlugin;
+import com.userofbricks.ectwilightforestplugin.plugins.TwilightForestPlugin;
 import com.userofbricks.ectwilightforestplugin.util.ModIDs;
 import com.userofbricks.expanded_combat.ExpandedCombat;
 import com.userofbricks.expanded_combat.item.ECWeaponItem;

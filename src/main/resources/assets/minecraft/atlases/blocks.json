@@ -1,7 +1,7 @@
 {
   "sources": [
     {
-      "type": "paletted_permutations",
+      "type": "ec_paletted_folder_permutations",
       "textures": [
         "ec_tf_plugin:item/battle_staff",
         "ec_tf_plugin:item/broad_sword",
@@ -24,6 +24,7 @@
         "ec_tf_plugin:item_large/spear"
       ],
       "palette_key": "ec_tf_plugin:item/color_palettes/template",
+      "texture_name_as_folder": true,
       "permutations": {
         "steeleaf": "ec_tf_plugin:item/color_palettes/steeleaf",
         "ironwood": "ec_tf_plugin:item/color_palettes/ironwood",

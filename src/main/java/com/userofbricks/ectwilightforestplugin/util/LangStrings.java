@@ -12,8 +12,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.userofbricks.ectwilightforestplugin.ECTwilightForestPlugin.REGISTRATE;
-import static com.userofbricks.expanded_combat.util.LangStrings.getOrCreateCategoryForField;
-import static com.userofbricks.expanded_combat.util.LangStrings.ifNotExcludedRegisterLangs;
+import static com.userofbricks.expanded_combat.init.LangStrings.getOrCreateCategoryForField;
+import static com.userofbricks.expanded_combat.init.LangStrings.ifNotExcludedRegisterLangs;
 
 public class LangStrings {
     public static final String FIERY_WEAPON_TOOLTIP = "tooltip.expanded_combat.fiery.weapon";

@@ -4,7 +4,7 @@
     "parent": "expanded_combat:item/bases/spear",
     "textures": {
       "layer0": "expanded_combat:item_large/spear_handle",
-      "layer1": "ec_tf_plugin:item_large/spear_fiery"
+      "layer1": "ec_tf_plugin:item_large/spear/fiery"
     }
   },
   "loader": "forge:separate_transforms",
@@ -13,21 +13,21 @@
       "parent": "minecraft:item/generated",
       "textures": {
         "layer0": "expanded_combat:item/spear_handle",
-        "layer1": "ec_tf_plugin:item/spear_fiery"
+        "layer1": "ec_tf_plugin:item/spear/fiery"
       }
     },
     "ground": {
       "parent": "minecraft:item/generated",
       "textures": {
         "layer0": "expanded_combat:item/spear_handle",
-        "layer1": "ec_tf_plugin:item/spear_fiery"
+        "layer1": "ec_tf_plugin:item/spear/fiery"
       }
     },
     "gui": {
       "parent": "minecraft:item/generated",
       "textures": {
         "layer0": "expanded_combat:item/spear_handle",
-        "layer1": "ec_tf_plugin:item/spear_fiery"
+        "layer1": "ec_tf_plugin:item/spear/fiery"
       }
     }
   }

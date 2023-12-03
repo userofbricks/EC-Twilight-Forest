@@ -1,0 +1,35 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "expanded_combat:config_boolean",
+          "config_entry": "weapon"
+        },
+        {
+          "type": "expanded_combat:config_material_boolean",
+          "location_path": [
+            "config",
+            "crafting",
+            "is_single_addition"
+          ],
+          "material": "Ironwood"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:smithing_transform",
+        "addition": {
+          "item": "twilightforest:ironwood_ingot"
+        },
+        "base": {
+          "item": "expanded_combat:netherite_battle_staff"
+        },
+        "result": {
+          "item": "ec_tf_plugin:ironwood_battle_staff"
+        },
+        "template": []
+      }
+    }
+  ]
+}

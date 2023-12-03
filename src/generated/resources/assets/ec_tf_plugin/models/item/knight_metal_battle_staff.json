@@ -5,7 +5,7 @@
     "textures": {
       "layer0": "expanded_combat:item_large/battle_staff_dye",
       "layer1": "expanded_combat:item_large/battle_staff_handle",
-      "layer2": "ec_tf_plugin:item_large/battle_staff_knight_metal"
+      "layer2": "ec_tf_plugin:item_large/battle_staff/knight_metal"
     }
   },
   "loader": "forge:separate_transforms",
@@ -15,7 +15,7 @@
       "textures": {
         "layer0": "expanded_combat:item/battle_staff_dye",
         "layer1": "expanded_combat:item/battle_staff_handle",
-        "layer2": "ec_tf_plugin:item/battle_staff_knight_metal"
+        "layer2": "ec_tf_plugin:item/battle_staff/knight_metal"
       }
     },
     "ground": {
@@ -23,7 +23,7 @@
       "textures": {
         "layer0": "expanded_combat:item/battle_staff_dye",
         "layer1": "expanded_combat:item/battle_staff_handle",
-        "layer2": "ec_tf_plugin:item/battle_staff_knight_metal"
+        "layer2": "ec_tf_plugin:item/battle_staff/knight_metal"
       }
     },
     "gui": {
@@ -31,7 +31,7 @@
       "textures": {
         "layer0": "expanded_combat:item/battle_staff_dye",
         "layer1": "expanded_combat:item/battle_staff_handle",
-        "layer2": "ec_tf_plugin:item/battle_staff_knight_metal"
+        "layer2": "ec_tf_plugin:item/battle_staff/knight_metal"
       }
     }
   }

@@ -1,10 +1,10 @@
 package com.userofbricks.ectwilightforestplugin.item;
 
-import com.userofbricks.ectwilightforestplugin.item.materials.plugins.TwilightForestPlugin;
+import com.userofbricks.ectwilightforestplugin.plugins.TwilightForestPlugin;
 import com.userofbricks.ectwilightforestplugin.util.LangStrings;
+import com.userofbricks.expanded_combat.api.material.Material;
+import com.userofbricks.expanded_combat.api.material.WeaponMaterial;
 import com.userofbricks.expanded_combat.item.ECWeaponItem;
-import com.userofbricks.expanded_combat.item.materials.Material;
-import com.userofbricks.expanded_combat.item.materials.WeaponMaterial;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;

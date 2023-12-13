@@ -15,8 +15,6 @@ public class ECTwilightForestPlugin {
     public static final NonNullSupplier<Registrate> REGISTRATE = NonNullSupplier.lazy(() -> Registrate.create(MODID));
     public static ECTFConfig CONFIG;
     public ECTwilightForestPlugin() {
-        AutoConfig.register(ECTFConfig.class, Toml4jConfigSerializer::new);
-        CONFIG = AutoConfig.getConfigHolder(ECTFConfig.class).getConfig();
         LangStrings.registerLang();
         ECTFItemTags.loadTags();
         MinecraftForge.EVENT_BUS.register(this);

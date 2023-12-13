@@ -1,5 +1,6 @@
 package com.userofbricks.ectwilightforestplugin.plugins;
 
+import com.userofbricks.ectwilightforestplugin.config.ECTFConfig;
 import com.userofbricks.ectwilightforestplugin.item.TFHammerWeaponItem;
 import com.userofbricks.ectwilightforestplugin.item.TFKatanaItem;
 import com.userofbricks.ectwilightforestplugin.item.TFWeaponItem;
@@ -9,15 +10,10 @@ import com.userofbricks.expanded_combat.api.registry.ECPlugin;
 import com.userofbricks.expanded_combat.api.registry.IExpandedCombatPlugin;
 import com.userofbricks.expanded_combat.api.registry.RegistrationHandler;
 import com.userofbricks.expanded_combat.api.registry.ShieldToMaterials;
-import com.userofbricks.expanded_combat.item.ECHammerWeaponItem;
-import com.userofbricks.expanded_combat.item.ECKatanaItem;
-import com.userofbricks.expanded_combat.item.ECWeaponItem;
 import com.userofbricks.expanded_combat.plugins.VanillaECPlugin;
-import net.minecraft.core.registries.Registries;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static com.userofbricks.ectwilightforestplugin.ECTwilightForestPlugin.*;
@@ -39,6 +35,8 @@ public class TwilightForestPlugin  implements IExpandedCombatPlugin {
 
     @Override
     public void registerMaterials(RegistrationHandler registrationHandler) {
+        AutoConfig.register(ECTFConfig.class, Toml4jConfigSerializer::new);
+        CONFIG = AutoConfig.getConfigHolder(ECTFConfig.class).getConfig();
         IRONWOOD =    registrationHandler.registerMaterial(new MaterialBuilder(REGISTRATE, "Ironwood", CONFIG.ironwood).gauntlet().shield()
                 .weaponBuilder(VanillaECPlugin.BATTLE_STAFF, null, TFWeaponItem.Dyeable::new).build()
                 .weaponBuilder(VanillaECPlugin.BROAD_SWORD, null, TFWeaponItem.Dyeable::new).build()

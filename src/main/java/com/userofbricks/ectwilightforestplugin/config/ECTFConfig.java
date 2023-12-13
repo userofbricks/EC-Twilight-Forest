@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import static com.userofbricks.ectwilightforestplugin.ECTwilightForestPlugin.MODID;
 import static com.userofbricks.ectwilightforestplugin.util.ModIDs.TwilightForestMOD_ID;
+import static twilightforest.init.TFSounds.KNIGHTMETAL_EQUIP;
 
 @Config(name = MODID)
 public class ECTFConfig implements ConfigData {
@@ -77,6 +78,6 @@ public class ECTFConfig implements ConfigData {
             .addedShieldDurability(250).baseProtectionAmmount(4).afterBasePercentReduction(0.6f)
             .repairItem(new ResourceLocation(TwilightForestMOD_ID, "knightmetal_ingot"))
             .offenseEnchantability(8).defenseEnchantability(8)
-            .equipSound(new ResourceLocation(TwilightForestMOD_ID, "item.twilightforest.armor.equip_knightmetal"))
+            .equipSound(KNIGHTMETAL_EQUIP.getId())
             .build();
 }

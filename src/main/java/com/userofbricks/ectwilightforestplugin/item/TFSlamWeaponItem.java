@@ -4,24 +4,22 @@ import com.userofbricks.ectwilightforestplugin.plugins.TwilightForestPlugin;
 import com.userofbricks.ectwilightforestplugin.util.LangStrings;
 import com.userofbricks.expanded_combat.api.material.Material;
 import com.userofbricks.expanded_combat.api.weapon_type.WeaponType;
-import com.userofbricks.expanded_combat.item.ECWeaponItem;
+import com.userofbricks.expanded_combat.item.SlamWeaponItem;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Random;
 
-@ParametersAreNonnullByDefault
-public class TFWeaponItem extends ECWeaponItem {
-    public TFWeaponItem(Material material, WeaponType weapon, Properties properties) {
-        super(material, weapon, properties);
+public class TFSlamWeaponItem extends SlamWeaponItem {
+    public TFSlamWeaponItem(Material material, WeaponType weaponType, Properties properties, int extraSlamLvl) {
+        super(material, weaponType, properties, extraSlamLvl);
     }
     @Override
     public boolean hurtEnemy(@NotNull ItemStack weapon, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {
@@ -42,8 +40,8 @@ public class TFWeaponItem extends ECWeaponItem {
         return result;
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> list, TooltipFlag tooltipFlag) {
+    @OnlyIn(net.neoforged.api.distmarker.Dist.CLIENT)
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag tooltipFlag) {
         if (this.getMaterial() == TwilightForestPlugin.FIERY) {
             list.add(Component.translatable(LangStrings.FIERY_WEAPON_TOOLTIP));
         } else if (this.getMaterial() == TwilightForestPlugin.KNIGHTMETAL) {
@@ -51,5 +49,4 @@ public class TFWeaponItem extends ECWeaponItem {
             else list.add(Component.translatable(LangStrings.KNIGHTMETAL_ARMORED_WEAPON_TOOLTIP));
         }
     }
-
 }

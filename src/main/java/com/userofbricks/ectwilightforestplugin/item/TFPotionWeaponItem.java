@@ -3,27 +3,37 @@ package com.userofbricks.ectwilightforestplugin.item;
 import com.userofbricks.ectwilightforestplugin.plugins.TwilightForestPlugin;
 import com.userofbricks.ectwilightforestplugin.util.LangStrings;
 import com.userofbricks.expanded_combat.api.material.Material;
-import com.userofbricks.expanded_combat.item.ECHammerWeaponItem;
+import com.userofbricks.expanded_combat.api.weapon_type.WeaponType;
+import com.userofbricks.expanded_combat.init.ItemDataComponents;
+import com.userofbricks.expanded_combat.item.PotionWeaponItem;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.Potions;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
-public class TFHammerWeaponItem extends ECHammerWeaponItem {
-    public TFHammerWeaponItem(Material material, Properties properties) {
-        super(material, properties);
+public class TFPotionWeaponItem extends PotionWeaponItem {
+    public TFPotionWeaponItem(Material material, WeaponType weapon, Properties builderIn) {
+        super(material, weapon, builderIn);
     }
+
     @Override
     public boolean hurtEnemy(@NotNull ItemStack weapon, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {
         boolean result = super.hurtEnemy(weapon, target, attacker);
+        if (getMaterial() != TwilightForestPlugin.FIERY)
+            return result;
         if (result && !target.level().isClientSide && !target.fireImmune()) {
             target.setRemainingFireTicks(15);
         } else {
@@ -39,7 +49,7 @@ public class TFHammerWeaponItem extends ECHammerWeaponItem {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(@NotNull ItemStack stack, Level world, @NotNull List<Component> list, @NotNull TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> list, TooltipFlag tooltipFlag) {
         if (this.getMaterial() == TwilightForestPlugin.FIERY) {
             list.add(Component.translatable(LangStrings.FIERY_WEAPON_TOOLTIP));
         } else if (this.getMaterial() == TwilightForestPlugin.KNIGHTMETAL) {

@@ -5,3 +5,4 @@
 /run-data/
 /.gradle/
 /out/
+/src/generated/*

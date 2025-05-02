@@ -1,20 +1,15 @@
 package com.userofbricks.ectwilightforestplugin.plugins;
 
 import com.userofbricks.ectwilightforestplugin.config.ECTFConfig;
-import com.userofbricks.ectwilightforestplugin.item.TFHammerWeaponItem;
-import com.userofbricks.ectwilightforestplugin.item.TFKatanaItem;
-import com.userofbricks.ectwilightforestplugin.item.TFWeaponItem;
 import com.userofbricks.expanded_combat.api.material.Material;
-import com.userofbricks.expanded_combat.api.material.MaterialBuilder;
 import com.userofbricks.expanded_combat.api.registry.ECPlugin;
 import com.userofbricks.expanded_combat.api.registry.IExpandedCombatPlugin;
 import com.userofbricks.expanded_combat.api.registry.RegistrationHandler;
-import com.userofbricks.expanded_combat.api.registry.ShieldToMaterials;
-import com.userofbricks.expanded_combat.plugins.VanillaECPlugin;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.item.crafting.Ingredient;
+import twilightforest.init.TFItems;
 
 import static com.userofbricks.ectwilightforestplugin.ECTwilightForestPlugin.*;
 
@@ -30,84 +25,33 @@ public class TwilightForestPlugin  implements IExpandedCombatPlugin {
     public static Material ARCTIC;
     @Override
     public ResourceLocation getPluginUid() {
-        return new ResourceLocation(MODID, "twilight_forest");
+        return modLoc("twilight_forest");
     }
 
     @Override
     public void registerMaterials(RegistrationHandler registrationHandler) {
         AutoConfig.register(ECTFConfig.class, Toml4jConfigSerializer::new);
         CONFIG = AutoConfig.getConfigHolder(ECTFConfig.class).getConfig();
-        IRONWOOD =    registrationHandler.registerMaterial(new MaterialBuilder(REGISTRATE, "Ironwood", CONFIG.ironwood).gauntlet().shield()
-                .weaponBuilder(VanillaECPlugin.BATTLE_STAFF, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.BROAD_SWORD, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.CLAYMORE, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.CUTLASS, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.DAGGER, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.DANCERS_SWORD, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.FLAIL, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.GLAIVE, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.GREAT_HAMMER, null, (m, w, p) -> new TFHammerWeaponItem(m, p)).build()
-                .weaponBuilder(VanillaECPlugin.KATANA, null, (m, w, p) -> new TFKatanaItem(m, p)).build()
-                .weaponBuilder(VanillaECPlugin.MACE, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.SCYTHE, null, TFWeaponItem.HasPotion::new).build()
-                .weaponBuilder(VanillaECPlugin.SICKLE, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.SPEAR, null, TFWeaponItem::new).build()
-        );
-        FIERY =       registrationHandler.registerMaterial(new MaterialBuilder(REGISTRATE, "Fiery", CONFIG.fiery).gauntlet().shield()
-                .weaponBuilder(VanillaECPlugin.BATTLE_STAFF, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.BROAD_SWORD, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.CLAYMORE, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.CUTLASS, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.DAGGER, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.DANCERS_SWORD, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.FLAIL, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.GLAIVE, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.GREAT_HAMMER, null, (m, w, p) -> new TFHammerWeaponItem(m, p)).build()
-                .weaponBuilder(VanillaECPlugin.KATANA, null, (m, w, p) -> new TFKatanaItem(m, p)).build()
-                .weaponBuilder(VanillaECPlugin.MACE, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.SCYTHE, null, TFWeaponItem.HasPotion::new).build()
-                .weaponBuilder(VanillaECPlugin.SICKLE, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.SPEAR, null, TFWeaponItem::new).build()
-        );
-        STEELEAF =    registrationHandler.registerMaterial(new MaterialBuilder(REGISTRATE, "Steeleaf", CONFIG.steeleaf).gauntlet().shield()
-                .weaponBuilder(VanillaECPlugin.BATTLE_STAFF, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.BROAD_SWORD, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.CLAYMORE, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.CUTLASS, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.DAGGER, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.DANCERS_SWORD, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.FLAIL, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.GLAIVE, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.GREAT_HAMMER, null, (m, w, p) -> new TFHammerWeaponItem(m, p)).build()
-                .weaponBuilder(VanillaECPlugin.KATANA, null, (m, w, p) -> new TFKatanaItem(m, p)).build()
-                .weaponBuilder(VanillaECPlugin.MACE, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.SCYTHE, null, TFWeaponItem.HasPotion::new).build()
-                .weaponBuilder(VanillaECPlugin.SICKLE, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.SPEAR, null, TFWeaponItem::new).build()
-        );
-        KNIGHTMETAL = registrationHandler.registerMaterial(new MaterialBuilder(REGISTRATE, "Knight Metal", CONFIG.knightmetal).gauntlet().shield()
-                .weaponBuilder(VanillaECPlugin.BATTLE_STAFF, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.BROAD_SWORD, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.CLAYMORE, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.CUTLASS, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.DAGGER, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.DANCERS_SWORD, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.FLAIL, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.GLAIVE, null, TFWeaponItem.Dyeable::new).build()
-                .weaponBuilder(VanillaECPlugin.GREAT_HAMMER, null, (m, w, p) -> new TFHammerWeaponItem(m, p)).build()
-                .weaponBuilder(VanillaECPlugin.KATANA, null, (m, w, p) -> new TFKatanaItem(m, p)).build()
-                .weaponBuilder(VanillaECPlugin.MACE, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.SCYTHE, null, TFWeaponItem.HasPotion::new).build()
-                .weaponBuilder(VanillaECPlugin.SICKLE, null, TFWeaponItem::new).build()
-                .weaponBuilder(VanillaECPlugin.SPEAR, null, TFWeaponItem::new).build()
-        );
-        NAGASCALE =   registrationHandler.registerMaterial(new MaterialBuilder(REGISTRATE, "Naga Scale", CONFIG.nagaScale).gauntlet().shield().setAdditionalDamageAfterEnchantments(damage -> (damage/2f)*3f));
-        YETI =        registrationHandler.registerMaterial(new MaterialBuilder(REGISTRATE, "Yeti", CONFIG.yeti).gauntlet().setAdditionalDamageAfterEnchantments(damage -> damage/2f));
-        ARCTIC =      registrationHandler.registerMaterial(new MaterialBuilder(REGISTRATE, "Arctic", CONFIG.arctic).gauntlet());
+
+        IRONWOOD = registrationHandler.registerMaterial("Ironwood", modLoc("ironwood"), CONFIG.ironwood,
+                () -> Ingredient.of(TFItems.IRONWOOD_INGOT), () -> Ingredient.of(TFItems.IRONWOOD_INGOT)); //gauntlet, shield, TF weapons
+        FIERY = registrationHandler.registerMaterial("Fiery", modLoc("fiery"), CONFIG.fiery,
+                () -> Ingredient.of(TFItems.FIERY_INGOT), () -> Ingredient.of(TFItems.FIERY_INGOT)); //gauntlet, shield, TF weapons
+        STEELEAF = registrationHandler.registerMaterial("Steeleaf", modLoc("steeleaf"), CONFIG.steeleaf,
+                () -> Ingredient.of(TFItems.STEELEAF_INGOT), () -> Ingredient.of(TFItems.STEELEAF_INGOT)); //gauntlet, shield, TF weapons
+        KNIGHTMETAL = registrationHandler.registerMaterial("Knight Metal", modLoc("knight_metal"), CONFIG.knightmetal,
+                () -> Ingredient.of(TFItems.KNIGHTMETAL_INGOT), () -> Ingredient.of(TFItems.KNIGHTMETAL_INGOT)); //gauntlet, shield, TF weapons
+
+        NAGASCALE = registrationHandler.registerMaterial("Naga Scale", modLoc("naga_scale"), CONFIG.nagaScale,
+                () -> Ingredient.of(TFItems.NAGA_SCALE), () -> Ingredient.of(TFItems.NAGA_SCALE)); //gauntlet, shield, .setAdditionalDamageAfterEnchantments(damage -> (damage/2f)*3f)
+        YETI = registrationHandler.registerMaterial("Yeti", modLoc("yeti"), CONFIG.yeti,
+                () -> Ingredient.of(TFItems.ALPHA_YETI_FUR), () -> Ingredient.of(TFItems.ALPHA_YETI_FUR)); //gauntlet, .setAdditionalDamageAfterEnchantments(damage -> (damage/2f))
+        ARCTIC = registrationHandler.registerMaterial("Arctic", modLoc("arctic"), CONFIG.yeti,
+                () -> Ingredient.of(TFItems.ARCTIC_FUR), () -> Ingredient.of(TFItems.ARCTIC_FUR)); //gauntlet
     }
 
-    @Override
+    /*@Override
     public void registerShieldToMaterials(RegistrationHandler.ShieldMaterialRegisterator registrationHandler) {
         registrationHandler.registerShieldToMaterials(new ShieldToMaterials(() -> ForgeRegistries.ITEMS.getValue(new ResourceLocation("twilightforest:knightmetal_shield")), KNIGHTMETAL, KNIGHTMETAL, KNIGHTMETAL, KNIGHTMETAL, KNIGHTMETAL));
-    }
+    }*/
 }

@@ -1,0 +1,73 @@
+
+modLoader="javafml"
+
+loaderVersion="${loader_version_range}"
+
+license="${mod_license}"
+
+#issueTrackerURL="https://github.com/userofbricks/Expanded-Combat/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+#displayURL="https://www.curseforge.com/minecraft/mc-mods/expanded-combat"
+#logoFile="expanded_combat_logo.png"
+authors="${mod_authors}"
+description='''${mod_description}'''
+
+[[dependencies."${mod_id}"]]
+modId="neoforge"
+# The type of the dependency. Can be one of "required", "optional", "incompatible" or "discouraged" (case insensitive).
+# 'required' requires the mod to exist, 'optional' does not
+# 'incompatible' will prevent the game from loading when the mod exists, and 'discouraged' will show a warning
+type = "required"
+# reason="..."
+versionRange="${neo_version_range}"
+# BEFORE - This mod is loaded BEFORE the dependency
+# AFTER - This mod is loaded AFTER the dependency
+ordering="NONE"
+# Side this dependency is applied on - BOTH, CLIENT, or SERVER
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="curios"
+type="required"
+versionRange="[${curios_version},)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="cloth_config"
+type="required"
+versionRange="[${cloth_config_api_version},)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="twilightforest"
+type="required"
+versionRange="[${twilight_forest_version},)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="expanded_combat"
+type="required"
+versionRange="[${expanded_combat_version},)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="bettercombat"
+type="optional"
+versionRange="[${better_combat_version},)"
+ordering="NONE"
+side="BOTH"

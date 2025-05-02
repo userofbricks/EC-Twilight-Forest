@@ -1,5 +1,6 @@
 {
   "parent": "expanded_combat:item/bases/sickle",
+  "gui_light": "front",
   "textures": {
     "layer0": "expanded_combat:item/sickle_handle",
     "layer1": "ec_tf_plugin:item/sickle/knight_metal"

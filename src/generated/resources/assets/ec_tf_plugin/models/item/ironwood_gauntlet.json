@@ -2,61 +2,61 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_quartz_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_quartz_darker_trim",
       "predicate": {
         "minecraft:trim_type": 0.1
       }
     },
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_iron_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_iron_darker_trim",
       "predicate": {
         "minecraft:trim_type": 0.2
       }
     },
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_netherite_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_netherite_darker_trim",
       "predicate": {
         "minecraft:trim_type": 0.3
       }
     },
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_redstone_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_redstone_darker_trim",
       "predicate": {
         "minecraft:trim_type": 0.4
       }
     },
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_copper_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_copper_darker_trim",
       "predicate": {
         "minecraft:trim_type": 0.5
       }
     },
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_gold_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_gold_darker_trim",
       "predicate": {
         "minecraft:trim_type": 0.6
       }
     },
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_emerald_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_emerald_darker_trim",
       "predicate": {
         "minecraft:trim_type": 0.7
       }
     },
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_diamond_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_diamond_darker_trim",
       "predicate": {
         "minecraft:trim_type": 0.8
       }
     },
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_lapis_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_lapis_darker_trim",
       "predicate": {
         "minecraft:trim_type": 0.9
       }
     },
     {
-      "model": "ec_tf_plugin:item/ironwood_gauntlet_amethyst_trim",
+      "model": "ec_tf_plugin:item/ironwood_gauntlet_amethyst_darker_trim",
       "predicate": {
         "minecraft:trim_type": 1.0
       }

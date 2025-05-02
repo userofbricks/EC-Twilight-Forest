@@ -1,6 +1,8 @@
 {
   "parent": "expanded_combat:item/bases/mace",
+  "gui_light": "front",
   "textures": {
-    "head": "ec_tf_plugin:item/mace/ironwood"
+    "layer0": "expanded_combat:item/mace_handle",
+    "layer1": "ec_tf_plugin:item/mace/ironwood"
   }
 }

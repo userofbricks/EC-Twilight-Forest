@@ -3,7 +3,6 @@ package com.userofbricks.ectwilightforestplugin.datagen;
 import com.userofbricks.ectwilightforestplugin.datagen.tags.ECPluginBlockTagsProvider;
 import com.userofbricks.ectwilightforestplugin.datagen.tags.ECPluginItemTagsProvider;
 import com.userofbricks.ectwilightforestplugin.util.LangStrings;
-import com.userofbricks.expanded_combat.ExpandedCombat;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -14,7 +13,9 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = ExpandedCombat.MODID, bus = EventBusSubscriber.Bus.MOD)
+import static com.userofbricks.ectwilightforestplugin.ECTwilightForestPlugin.MODID;
+
+@EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
     @SubscribeEvent
@@ -25,7 +26,9 @@ public class DataGenerators {
         ExistingFileHelper helper = event.getExistingFileHelper();
 
         generator.addProvider(event.includeClient(), new LangStrings(output));
+        generator.addProvider(event.includeClient(), new ECPluginSpriteScourceProvider(output, provider, helper));
         generator.addProvider(event.includeClient(), new ECPluginItemModelProvider(output, helper));
+        generator.addProvider(event.includeClient(), new MyDataMapProvider(output, provider));
         generator.addProvider(event.includeServer(), new ECPluginRecipeProvider(output, provider));
         ECPluginBlockTagsProvider blockTagsProvider = new ECPluginBlockTagsProvider(output, provider, helper);
         generator.addProvider(event.includeServer(), blockTagsProvider);

@@ -25,6 +25,7 @@ public class ECTFConfig implements ConfigData {
             .afterBasePercentReduction(0.65f)
             .defenseEnchantability(15)
             .mendingBonus(0.1f)
+            .shield()
             .build();
 
     @ConfigEntry.Category("Materials") @ConfigEntry.Gui.CollapsibleObject
@@ -68,6 +69,7 @@ public class ECTFConfig implements ConfigData {
             .offenseEnchantability(25)
             .defenseEnchantability(15)
             .mendingBonus(1.5f)
+            .shield()
             .build();
 
     @ConfigEntry.Category("Materials") @ConfigEntry.Gui.CollapsibleObject
@@ -84,6 +86,7 @@ public class ECTFConfig implements ConfigData {
             .offenseEnchantability(10)
             .defenseEnchantability(10)
             .flaming()
+            .shield()
             .build();
 
     @ConfigEntry.Category("Materials") @ConfigEntry.Gui.CollapsibleObject
@@ -98,6 +101,7 @@ public class ECTFConfig implements ConfigData {
             .afterBasePercentReduction(0.6f)
             .offenseEnchantability(9)
             .defenseEnchantability(9)
+            .shield()
             .build();
 
     @ConfigEntry.Category("Materials") @ConfigEntry.Gui.CollapsibleObject
@@ -114,5 +118,6 @@ public class ECTFConfig implements ConfigData {
             .offenseEnchantability(8)
             .defenseEnchantability(8)
             .equipSound(KNIGHTMETAL_EQUIP.getId())
+            .shield()
             .build();
 }

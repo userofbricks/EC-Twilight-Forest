@@ -1,16 +1,18 @@
 {
-  "parent": "minecraft:item/handheld",
   "base": {
     "parent": "expanded_combat:item/bases/spear",
+    "gui_light": "front",
     "textures": {
       "layer0": "expanded_combat:item_large/spear_handle",
       "layer1": "ec_tf_plugin:item_large/spear/ironwood"
     }
   },
-  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "loader": "neoforge:separate_transforms",
   "perspectives": {
     "fixed": {
       "parent": "minecraft:item/generated",
+      "gui_light": "front",
       "textures": {
         "layer0": "expanded_combat:item/spear_handle",
         "layer1": "ec_tf_plugin:item/spear/ironwood"
@@ -18,6 +20,7 @@
     },
     "ground": {
       "parent": "minecraft:item/generated",
+      "gui_light": "front",
       "textures": {
         "layer0": "expanded_combat:item/spear_handle",
         "layer1": "ec_tf_plugin:item/spear/ironwood"
@@ -25,6 +28,7 @@
     },
     "gui": {
       "parent": "minecraft:item/generated",
+      "gui_light": "front",
       "textures": {
         "layer0": "expanded_combat:item/spear_handle",
         "layer1": "ec_tf_plugin:item/spear/ironwood"

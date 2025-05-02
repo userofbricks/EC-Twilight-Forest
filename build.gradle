@@ -46,6 +46,16 @@ var generateModMetadata = tasks.register('generateModMetadata', ProcessResources
             mod_authors : mod_authors,
             mod_description : mod_description,
     ]
+    for (String modDepId : Arrays.asList('curios', 'cloth_config_api', 'twilight_forest', 'better_combat', 'expanded_combat')) {
+        String modVersionLabel = modDepId + "_version"
+        if (project.hasProperty(modVersionLabel)) {
+            replaceProperties.put(modVersionLabel, project.getProperties().get(modVersionLabel))
+        }
+        String modVersionRange = modDepId + "_version_range"
+        if (project.hasProperty(modVersionRange)) {
+            replaceProperties.put(modVersionRange, project.getProperties().get(modVersionRange))
+        }
+    }
 
     inputs.properties replaceProperties
     expand replaceProperties

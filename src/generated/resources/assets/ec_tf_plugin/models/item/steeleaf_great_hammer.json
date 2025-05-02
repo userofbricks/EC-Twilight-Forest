@@ -1,6 +1,8 @@
 {
   "parent": "expanded_combat:item/bases/great_hammer",
+  "gui_light": "front",
   "textures": {
-    "head": "ec_tf_plugin:item/great_hammer/steeleaf"
+    "layer0": "expanded_combat:item/great_hammer_handle",
+    "layer1": "ec_tf_plugin:item/great_hammer/steeleaf"
   }
 }

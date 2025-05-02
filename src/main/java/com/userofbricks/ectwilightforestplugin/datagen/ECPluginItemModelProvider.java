@@ -34,33 +34,19 @@ public class ECPluginItemModelProvider extends ECItemModelProvider {
 
     protected void standardWeaponModelsFor(Material materialReference, String materialItemName) {
         ResourceLocation materialLocation = materialReference.id();
-        new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_battle_staff"), materialReference, ECBasePlugin.BATTLE_STAFF, this)
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_broad_sword"), materialReference, ECBasePlugin.BROAD_SWORD, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_claymore"), materialReference, ECBasePlugin.CLAYMORE, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_cutlass"), materialReference, ECBasePlugin.CUTLASS, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_dagger"), materialReference, ECBasePlugin.DAGGER, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_dancer_s_sword"), materialReference, ECBasePlugin.DANCERS_SWORD, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_flail"), materialReference, ECBasePlugin.FLAIL, this))
-              .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_glaive"), materialReference, ECBasePlugin.GLAIVE, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_great_hammer"), materialReference, ECBasePlugin.GREAT_HAMMER, this))
-              .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_katana"), materialReference, ECBasePlugin.KATANA, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasLargeModel().setHasArrowBlockingWeaponOverrides().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_mace"), materialReference, ECBasePlugin.MACE, this))
-              .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_scythe"), materialReference, ECBasePlugin.SCYTHE, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_sickle"), materialReference, ECBasePlugin.SICKLE, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
-        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_spear"), materialReference, ECBasePlugin.SPEAR, this))
-                .setDyeTextureFunction("dye").setHandleTextureFunction("handle").setHasLargeModel().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_battle_staff"), materialReference, ECBasePlugin.BATTLE_STAFF, this)).setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_broad_sword"), materialReference, ECBasePlugin.BROAD_SWORD, this)).setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_claymore"), materialReference, ECBasePlugin.CLAYMORE, this)).setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_cutlass"), materialReference, ECBasePlugin.CUTLASS, this)).setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_dagger"), materialReference, ECBasePlugin.DAGGER, this)).setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_dancer_s_sword"), materialReference, ECBasePlugin.DANCERS_SWORD, this)).setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_flail"), materialReference, ECBasePlugin.FLAIL, this)).setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_glaive"), materialReference, ECBasePlugin.GLAIVE, this)).setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_great_hammer"), materialReference, ECBasePlugin.GREAT_HAMMER, this)).setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_katana"), materialReference, ECBasePlugin.KATANA, this)).setHasLargeModel().setHasArrowBlockingWeaponOverrides().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_mace"), materialReference, ECBasePlugin.MACE, this)).setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_scythe"), materialReference, ECBasePlugin.SCYTHE, this)).setHasLargeModel().setDyeableOrPotionDippable().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_sickle"), materialReference, ECBasePlugin.SICKLE, this)).setHasCustomTransformsOrModel().generateWeaponModelAndStandardOverrides();
+        (new WeaponItemModelBuilder(ResourceLocation.fromNamespaceAndPath(materialLocation.getNamespace(), materialItemName + "_spear"), materialReference, ECBasePlugin.SPEAR, this)).setHasLargeModel().generateWeaponModelAndStandardOverrides();
     }
 }

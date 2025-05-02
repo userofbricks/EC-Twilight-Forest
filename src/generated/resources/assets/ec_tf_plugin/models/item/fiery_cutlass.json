@@ -1,5 +1,6 @@
 {
   "parent": "expanded_combat:item/bases/cutlass",
+  "gui_light": "front",
   "textures": {
     "layer0": "expanded_combat:item/cutlass_handle",
     "layer1": "ec_tf_plugin:item/cutlass/fiery"
